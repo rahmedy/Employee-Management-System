@@ -3,6 +3,8 @@
 This application will allow the user to be able to view and manage the departments, roles, and employees in my company. Larger companies need to store data in a simplified manner and this Application does just that. This Application will allow the user to Add departments, roles, employees, View departments, roles, employees
 and Update employee roles.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 # How its Delivered: 
 
