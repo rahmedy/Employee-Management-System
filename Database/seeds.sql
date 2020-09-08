@@ -1,4 +1,6 @@
 -- Departments
+USE employee_data;
+
 INSERT INTO departments (dptid, department_name)
 VALUES (1, "Sales");
 
