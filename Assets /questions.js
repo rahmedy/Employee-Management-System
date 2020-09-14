@@ -1,4 +1,4 @@
-const initialQuest = [
+const initialQ = [
 	{
         name: 'what',
 		type: 'list',
@@ -8,8 +8,8 @@ const initialQuest = [
 			'view roles',
 			'view departments',
 			'add employee',
-			'add role',
-			'add department',
+			'Add Role',
+			'Add Department',
 			'update employee role',
 			'EXIT'
 		]
@@ -91,3 +91,12 @@ const updateRole =
             message: "What is the id of the role this employee will have ?"
           },
     ]
+
+    module.exports = {
+
+        initialQ,
+        addDepart,
+        addRole,
+        addEmployee,
+        updateRole
+    }
