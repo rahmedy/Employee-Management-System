@@ -17,6 +17,7 @@ const initialQuest = [
 ];
 
 
+
 const addDepart = [
     {
         name: "department",
@@ -40,10 +41,53 @@ const addRole = [
     },
 
     {
-        name:"department",
+        name:"newDepartment",
         type:"input",
         message: "",
 
     }
 
 ]
+
+const addEmployee = [
+    {
+        name: "firstName",
+        type: "input",
+        message: "What is the employee's first name?"
+      },
+      {
+        name: "lastName",
+        type: "input",
+        message: "What is the employee's last name?"
+      },
+      {
+        name: "employeeRole",
+        type: "input",
+        message: "What is the employee's role id number?",
+      },
+      {
+        name: "employeeManager",
+        type: "input",
+        message: "What is the employee's manager id number?",
+      }
+]
+
+
+const updateRole =
+    [
+        {
+            name: "firstName",
+            type: "input",
+            message: "What is the employee's first name?"
+          },
+          {
+            name: "lastName",
+            type: "input",
+            message: "What is the employee's last name?"
+          },
+          {
+            name: "updateRole",
+            type: "input",
+            message: "What is the id of the role this employee will have ?"
+          },
+    ]
