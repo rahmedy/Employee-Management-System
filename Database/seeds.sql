@@ -67,35 +67,35 @@ INSERT INTO employees (first_name, last_name, role_id, is_manager)
 VALUES ("John", "Cena", 1, true);
 
 -- Sales----- 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Brad", "Pitt", 2, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Brad", "Pitt", 2, 1, false);
 
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Johnny", "Depp", 2, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Johnny", "Depp", 2, 1, false);
 
 -- HR ------
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Ben", "Affleck", 3,false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Ben", "Affleck", 3, 1,false);
 
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Tom", "Brady", 3, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Tom", "Brady", 3, 1, false);
 
 -- IT ------
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Lebron", "James", 4, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Lebron", "James", 4, 1, false);
 
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Larry", "Bird", 4, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Larry", "Bird", 4,  1, false);
 
 -- Finance----
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("Peyton", "Manning", 5, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("Peyton", "Manning", 5, 1, false);
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
-VALUES ("James", "Harden", 5, false);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+VALUES ("James", "Harden", 5, 1, false);
 

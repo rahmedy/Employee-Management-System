@@ -16,7 +16,8 @@ CREATE TABLE roles (
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
   deparment_id INT NOT NULL,
-  PRIMARY KEY (id));
+  PRIMARY KEY (id)
+   FOREIGN KEY (department_id));
 
 CREATE TABLE employees (
   id INT NOT NULL AUTO_INCREMENT,
@@ -26,6 +27,7 @@ CREATE TABLE employees (
   manager_id INT,
   is_manager BOOLEAN,
   PRIMARY KEY (id)
+  FOREIGN KEY (role_id)
 );
 
  

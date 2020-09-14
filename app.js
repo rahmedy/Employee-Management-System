@@ -6,6 +6,11 @@ const connection = mysql.createConnection({
     host: "locatlhost",
     port: 3306,
     user: "root",
-    password: "Ht208476",
+    password: "root",
     database: "employee_data"
 })
+
+
+connection.connect((err) => {
+    if (err) throw err;
+  });
