@@ -53,49 +53,49 @@ INSERT INTO roles (title, salary, department_id)
 VALUES ("Financial Analyst", 125000, 5);
 
 
--- Employees -----
+-- employee -----
 
 -- Executives ----
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, is_manager)
 VALUES ("Rayan", "Ahmedy", 1, true);
 
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, is_manager)
 VALUES ("Tim", "Brown", 1, true);
 
-INSERT INTO employees (first_name, last_name, role_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, is_manager)
 VALUES ("John", "Cena", 1, true);
 
 -- Sales----- 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Brad", "Pitt", 2, 1, false);
 
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Johnny", "Depp", 2, 1, false);
 
 -- HR ------
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Ben", "Affleck", 3, 1,false);
 
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Tom", "Brady", 3, 1, false);
 
 -- IT ------
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Lebron", "James", 4, 1, false);
 
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Larry", "Bird", 4,  1, false);
 
 -- Finance----
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("Peyton", "Manning", 5, 1, false);
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
 VALUES ("James", "Harden", 5, 1, false);
 

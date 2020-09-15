@@ -4,13 +4,13 @@ const initialQ = [
 		type: 'list',
 		message: 'What would you like to do?',
 		choices: [
-			'view employees',
-			'view roles',
-			'view departments',
-			'add employee',
-			'Add Role',
-			'Add Department',
-			'update employee role',
+            'View Departments',
+            'View Roles',
+			'View Employees',
+            'Add Department',
+            'Add Role',
+			'Add Employee',
+			'Update Employee Role',
 			'EXIT'
 		]
 	}
@@ -47,7 +47,7 @@ const addRole = [
 
     }
 
-]
+] 
 
 const addEmployee = [
     {
@@ -100,3 +100,4 @@ const updateRole =
         addEmployee,
         updateRole
     }
+    
