@@ -1,25 +1,40 @@
-const mysql = require('mysql');
-const inquirer = require('inquirer');
-const questions = require('./assets/js/questions.js');
-const table = require('console.table');
+const mysql = require("mysql");
+const inquirer = require("inquirer");
+const questions = require("./assets/questions.js")
+const table = require("console.table");
+
+console.log('\n', "<-----------------------------Welcome to Your Employee Database--------------------------------------->", '\n')
 
 //create connection to mysql db
 const connection = mysql.createConnection({
-	host: 'locatlhost',
+	host: 'localhost',
 	port: 3306,
 	user: 'root',
 	password: 'Ht208476',
 	database: 'employee_data'
 });
 
-connection.connect((err) => {
+connection.connect(function (err){
 	if (err) throw err;
-	init();
+    init();
+    // start();
 });
+// start();
+// function start(){
+//     inquirer
+//     .prompt({
+//       name: "postOrBid",
+//       type: "list",
+//       message: "Would you like to [POST] an auction or [BID] on an auction?",
+//       choices: ["POST", "BID", "EXIT"]
+//     })
+// };
+
+
 
 //  <---Begins inital questions -----> //
-async function init() {
-	await inquirer.prompt(questions.initialQ).then(function(answer) {
+function init() {
+	inquirer.prompt(questions.initialQ).then(function(answer) {
 		switch (answer.what) {
 			case 'View Departments':
 				viewDepartments();
@@ -33,21 +48,21 @@ async function init() {
 				viewEmployees();
 				break;
 
-			case 'Add Department':
-				addDepartment();
-				break;
+			// case 'Add Department':
+			// 	addDepartment();
+			// 	break;
 
-			case 'Add Role':
-				newRole();
-				break;
+			// case 'Add Role':
+			// 	newRole();
+			// 	break;
 
-			case 'Add Employee':
-				newEmployee();
-				break;
+			// case 'Add Employee':
+			// 	newEmployee();
+			// 	break;
 
-			case 'Update Employee Role':
-				updateRole();
-				break;
+			// case 'Update Employee Role':
+			// 	updateRole();
+			// 	break;
 
 			case 'Exit':
 				connection.end();
@@ -64,34 +79,35 @@ function viewDepartments() {
 		console.table(res);
 		init();
 	});
-}
+	
+};
 
-function viewRoles() {
-	const query =
-		'SELECT roles.id, roles.title, roles.salary, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
-	connection.query(query, (err, res) => {
-		if (err) throw err;
-		console.log('\n ------------------------------------------------------------------------\n');
-		console.table(res);
-		init();
-	});
-}
+// function viewRoles() {
+// 	const query =
+// 		'SELECT roles.id, roles.title, roles.salary, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
+// 	connection.query(query, (err, res) => {
+// 		if (err) throw err;
+// 		console.log('\n ------------------------------------------------------------------------\n');
+// 		console.table(res);
+// 		init();
+// 	});
+// };
 
-function viewEmployees() {
-	const query =
-		'employee.id, employee.first_name, employee.last_name, role.title, department.department, role.salary, manager.manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN manager ON employee.manager_id = manager.id LEFT JOIN department ON role.department_id = department.id';
-	connection.query(query, (err, res) => {
-		if (err) throw err;
-		console.log('\n ------------------------------------------------------------------------\n');
-		console.table(res);
-		init();
-	});
-}
+// function viewEmployees() {
+// 	const query =
+// 		'employee.id, employee.first_name, employee.last_name, role.title, department.department, role.salary, manager.manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN manager ON employee.manager_id = manager.id LEFT JOIN department ON role.department_id = department.id';
+// 	connection.query(query, (err, res) => {
+// 		if (err) throw err;
+// 		console.log('\n ------------------------------------------------------------------------\n');
+// 		console.table(res);
+// 		init();
+// 	});
+// };
 
-function addDepartment() {}
+// function addDepartment() {}
 
-function newRole() {}
+// function newRole() {}
 
-function newEmployee() {}
+// function newEmployee() {}
 
-function updateRole() {}
+// function updateRole() {}
