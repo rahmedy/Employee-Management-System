@@ -17,7 +17,7 @@ CREATE TABLE roles (
   salary INT NULL,
   department_id INT NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (department_id) REFERENCES departments(id)
+  -- FOREIGN KEY (department_id) REFERENCES departments(id)
   );
 
 CREATE TABLE employee (
@@ -28,7 +28,7 @@ CREATE TABLE employee (
   manager_id INT,
   is_manager BOOLEAN,
   PRIMARY KEY (id),
-  FOREIGN KEY (role_id) REFERENCES roles(id)
+  -- FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
  
