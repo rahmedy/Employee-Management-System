@@ -22,10 +22,10 @@ INSERT INTO roles (title, salary, department_id)
 VALUES ("Sales Executive", 200000, 1);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES (" IT Executive", 200000, 1);
+VALUES ("IT Executive", 200000, 1);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES (" Financial Executive", 200000, 1);
+VALUES ("Financial Executive", 200000, 1);
 
 
 INSERT INTO roles (title, salary, department_id)
@@ -41,7 +41,7 @@ INSERT INTO roles (title, salary, department_id)
 VALUES ("Human resources specialist", 120000, 3);
 
 INSERT INTO roles (title, salary, department_id)
-VALUES ("Cloud  Engineer", 950000, 4);
+VALUES ("Cloud Engineer", 950000, 4);
 
 INSERT INTO roles (title, salary, department_id)
 VALUES ("Software Engineer", 100000, 4);
