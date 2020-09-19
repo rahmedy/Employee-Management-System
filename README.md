@@ -2,8 +2,8 @@
       
     
 ![License](https://img.shields.io/badge/License-ISC-blue.svg)
-## Description
-This Applciation allows a user to store data using a backend MySQL database to store information about departments,roles and the emplyess. It will also allow the user to view departments, roles and employees. This will also allow the user to delete any one of those options or add to it.
+## Description 
+This application allows a user to store data using a backend MySQL database to store information about departments, roles, and employees. It will also enable the user to view departments, roles, and employees. This will also allow the user to delete any one of those options or add to it. This Project focuses heavily on Node.js and MySQL.
 
 ![](assets/demo.png)
 
