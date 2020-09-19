@@ -6,7 +6,7 @@ USE employee_data;
 
 /* Create new tables */
 CREATE TABLE departments (
-  id INT NOT NULL,
+ id INT NOT NULL AUTO_INCREMENT,
   department_name VARCHAR(30) NULL,
   PRIMARY KEY (id)
 );
@@ -17,18 +17,18 @@ CREATE TABLE roles (
   salary INT NULL,
   department_id INT NOT NULL,
   PRIMARY KEY (id),
-  -- FOREIGN KEY (department_id) REFERENCES departments(id)
+  FOREIGN KEY (department_id) REFERENCES departments(id)
   );
 
 CREATE TABLE employee (
   id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(30) NOT NULL,
-  last_name VARCHAR(30) NOT NULL,
+  first_name VARCHAR(30) NULL,
+  last_name VARCHAR(30) NULL,
   role_id INT NOT NULL,
-  manager_id INT,
+  manager_id INT NULL,
   is_manager BOOLEAN,
   PRIMARY KEY (id),
-  -- FOREIGN KEY (role_id) REFERENCES roles(id)
+  FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
  

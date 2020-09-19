@@ -33,7 +33,7 @@ function init() {
 				viewRoles();
 				break;
 
-			case 'View employees':
+			case 'View Employees':
 				viewemployee();
 				break;
 
@@ -79,13 +79,14 @@ function viewRoles() {
 		console.log('\n ------------------------------------------------------------------------\n');
 		console.table(res);
 		init();
+
 	});
 };
 
 function viewemployee() {
 	const query =
-	'SELECT roles.department_id, roles.title, roles.salary, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
-	// 'SELECT employee.role_id, employee.first_name, employee.last_name, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
+	// 'SELECT roles.department_id, roles.title, roles.salary, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
+	"SELECT employee.id, employee.first_name, employee.last_name, roles.title, roles.salary, departments.department_name, CONCAT (manager.first_name, ' ', manager.last_name) as manager FROM employee LEFT JOIN roles ON employee.role_id = roles.id LEFT JOIN departments ON roles.department_id = departments.id LEFT JOIN employee manager ON employee.manager_id = manager.id";
 	connection.query(query, (err, res) => {
 		if (err) throw err;
 		console.log('\n ------------------------------------------------------------------------\n');

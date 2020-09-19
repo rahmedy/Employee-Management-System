@@ -1,19 +1,19 @@
 USE employee_data;
 
 -- Departments-------
-INSERT INTO departments (id, department_name)
-VALUES (1, "Executive");
+INSERT INTO departments (id,department_name)
+VALUES ( 1,"Executive");
 
-INSERT INTO departments (id, department_name)
+INSERT INTO departments (id,department_name)
 VALUES (2, "Sales");
 
-INSERT INTO departments (id, department_name)
-VALUES (3, "Human Resources");
+INSERT INTO departments (id,department_name)
+VALUES ( 3,"Human Resources");
 
-INSERT INTO departments (id, department_name)
+INSERT INTO departments (id,department_name)
 VALUES (4, "IT");
 
-INSERT INTO departments (id, department_name)
+INSERT INTO departments (id,department_name)
 VALUES (5, "Finance");
 
 
@@ -56,15 +56,15 @@ VALUES ("Financial Analyst", 125000, 5);
 -- employee -----
 
 -- Executives ----
-INSERT INTO employee (first_name, last_name, role_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id,  is_manager)
 VALUES ("Rayan", "Ahmedy", 1, true);
 
 
-INSERT INTO employee (first_name, last_name, role_id, is_manager)
+INSERT INTO employee (first_name, last_name, role_id,  is_manager)
 VALUES ("Tim", "Brown", 1, true);
 
 INSERT INTO employee (first_name, last_name, role_id, is_manager)
-VALUES ("John", "Cena", 1, true);
+VALUES ("John", "Cena", 1,true);
 
 -- Sales----- 
 INSERT INTO employee (first_name, last_name, role_id, manager_id, is_manager)
