@@ -154,6 +154,22 @@ function removeRole() {
 		});
 	});
 }
-// function newEmployee() {}
+function newEmployee() {
+	inquirer.prompt(questions.addEmployee).then(function(answers){
+		let newEmployee = {
+			firstName: answers.firstName,
+			lastName: answers.lastName,
+			role: answers.employeeRole,
+			manager: answers.employeeManager
+		  }
+		const query = "INSERT INTO employee (first_name, last_name, role_id, is_manager) VALUES (?, ?, ?, ?)";
+		connection.query(query, [newEmployee.firstName, newEmployee.lastName, newEmployee.role, newEmployee.manager], function (err){
+		    if (err) throw err;
+        console.log("\n ----------------------------------------\n");
+        viewemployee();	
+		});
+	});
+
+}
 
 // function updateRole() {}
