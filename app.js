@@ -5,7 +5,7 @@ const table = require('console.table');
 
 console.log(
 	'\n',
-	'<-----------------------------Welcome to Your Employee Database--------------------------------------->',
+	'<----------------------Welcome to Your Employee Database----------------------------------->',
 	'\n'
 );
 
@@ -59,12 +59,12 @@ function init() {
 				newEmployee();
 				break;
 
-				case 'Remove Employee':
+			case 'Remove Employee':
 				removeEmployee();
 				break;
 
 			case 'Update Employee Role':
-				updatedRole();
+				updateRole();
 				break;
 
 			case 'Exit':
@@ -158,35 +158,52 @@ function removeRole() {
 		});
 	});
 }
+
 function newEmployee() {
-	inquirer.prompt(questions.addEmployee).then(function(answers){
+	inquirer.prompt(questions.addEmployee).then(function(answers) {
 		let newEmployee = {
 			firstName: answers.firstName,
 			lastName: answers.lastName,
 			role: answers.employeeRole,
 			manager: answers.employeeManager
-		  }
-		const query = "INSERT INTO employee (first_name, last_name, role_id, is_manager) VALUES (?, ?, ?, ?)";
-		connection.query(query, [newEmployee.firstName, newEmployee.lastName, newEmployee.role, newEmployee.manager], function (err){
-		    if (err) throw err;
-        console.log("\n ----------------------------------------\n");
-        viewemployee();	
-		});
+		};
+		const query = 'INSERT INTO employee (first_name, last_name, role_id, is_manager) VALUES (?, ?, ?, ?)';
+		connection.query(
+			query,
+			[ newEmployee.firstName, newEmployee.lastName, newEmployee.role, newEmployee.manager ],
+			function(err) {
+				if (err) throw err;
+				console.log('\n ----------------------------------------\n');
+				viewemployee();
+			}
+		);
 	});
-
 }
 
 function removeEmployee() {
 	inquirer.prompt(questions.removeEmp).then(function(answers) {
 		let firstName = answers.firstName;
 		let lastName = answers.lastName;
-		const query = "DELETE FROM employee WHERE first_name = ? AND last_name = ?";
-		connection.query(query, [firstName, lastName], function (err) {
+		const query = 'DELETE FROM employee WHERE first_name = ? AND last_name = ?';
+		connection.query(query, [ firstName, lastName ], function(err) {
 			if (err) throw err;
-			console.log("\n ----------------------------------------\n");
-			viewemployee();	
+			console.log('\n ----------------------------------------\n');
+			viewemployee();
 		});
 	});
 }
 
-// function updateRole() {}
+function updateRole() {
+	inquirer.prompt(questions.updateRole).then(function(answers) {
+		let updatedRole = answers.updateRole;
+		let firstName = answers.firstName;
+		let lastName = answers.lastName;
+
+		const query = 'UPDATE employee SET role_id = ? WHERE first_name = ? AND last_name = ?';
+		connection.query(query, [ updatedRole, firstName, lastName ], function(err) {
+			if (err) throw err;
+			console.log('\n ----------------------------------------\n');
+			viewemployee();
+		});
+	});
+}

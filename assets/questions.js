@@ -27,9 +27,9 @@ const addDepart = [
 	}
 ];
 
-const deleteDpar =[
+const deleteDpar = [
 	{
-	name: 'delete',
+		name: 'delete',
 		type: 'input',
 		message: 'What departmnet would you like to delete'
 	}
@@ -80,24 +80,24 @@ const addEmployee = [
 
 const removeEmp = [
 	{
-		name: "firstName",
-        type: "input",
-        message: "What is the employee's first name?"
-      },
-      {
-        name: "lastName",
-        type: "input",
-        message: "What is the employee's last name?"
-      },
-]
-
-const deleteRole =[
+		name: 'firstName',
+		type: 'input',
+		message: "What is the employee's first name?"
+	},
 	{
-		name: "deleteR",
-        type: "input",
-        message: "What role would you like to remove?"
+		name: 'lastName',
+		type: 'input',
+		message: "What is the employee's last name?"
 	}
-]
+];
+
+const deleteRole = [
+	{
+		name: 'deleteR',
+		type: 'input',
+		message: 'What role would you like to remove?'
+	}
+];
 
 const updateRole = [
 	{
