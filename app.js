@@ -1,9 +1,13 @@
-const mysql = require("mysql");
-const inquirer = require("inquirer");
-const questions = require("./assets/questions.js")
-const table = require("console.table");
+const mysql = require('mysql');
+const inquirer = require('inquirer');
+const questions = require('./assets/questions.js');
+const table = require('console.table');
 
-console.log('\n', "<-----------------------------Welcome to Your Employee Database--------------------------------------->", '\n')
+console.log(
+	'\n',
+	'<-----------------------------Welcome to Your Employee Database--------------------------------------->',
+	'\n'
+);
 
 //create connection to mysql db
 const connection = mysql.createConnection({
@@ -14,16 +18,14 @@ const connection = mysql.createConnection({
 	database: 'employee_data'
 });
 
-connection.connect(function (err) {
+connection.connect(function(err) {
 	if (err) throw err;
 	init();
 });
 
-
-
 //  <---Begins inital questions -----> //
 function init() {
-	inquirer.prompt(questions.initialQ).then(function (answer) {
+	inquirer.prompt(questions.initialQ).then(function(answer) {
 		switch (answer.what) {
 			case 'View Departments':
 				viewDepartments();
@@ -41,8 +43,16 @@ function init() {
 				addDepartment();
 				break;
 
+			case 'Delete Department':
+				deleteDepartment();
+				break;
+
 			case 'Add Role':
 				newRole();
+				break;
+
+			case 'Remove Role':
+				removeRole();
 				break;
 
 			case 'Add Employee':
@@ -50,7 +60,7 @@ function init() {
 				break;
 
 			case 'Update Employee Role':
-				updateRole();
+				updatedRole();
 				break;
 
 			case 'Exit':
@@ -68,8 +78,7 @@ function viewDepartments() {
 		console.table(res);
 		init();
 	});
-
-};
+}
 
 function viewRoles() {
 	const query =
@@ -79,75 +88,72 @@ function viewRoles() {
 		console.log('\n ------------------------------------------------------------------------\n');
 		console.table(res);
 		init();
-
 	});
-};
+}
 
 function viewemployee() {
 	const query =
-	// 'SELECT roles.department_id, roles.title, roles.salary, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
-	"SELECT employee.id, employee.first_name, employee.last_name, roles.title, roles.salary, departments.department_name, CONCAT (manager.first_name, ' ', manager.last_name) as manager FROM employee LEFT JOIN roles ON employee.role_id = roles.id LEFT JOIN departments ON roles.department_id = departments.id LEFT JOIN employee manager ON employee.manager_id = manager.id";
+		// 'SELECT roles.department_id, roles.title, roles.salary, departments.department_name FROM roles LEFT JOIN departments ON roles.department_id = departments.id';
+		"SELECT employee.id, employee.first_name, employee.last_name, roles.title, roles.salary, departments.department_name, CONCAT (manager.first_name, ' ', manager.last_name) as manager FROM employee LEFT JOIN roles ON employee.role_id = roles.id LEFT JOIN departments ON roles.department_id = departments.id LEFT JOIN employee manager ON employee.manager_id = manager.id";
 	connection.query(query, (err, res) => {
 		if (err) throw err;
 		console.log('\n ------------------------------------------------------------------------\n');
 		console.table(res);
 		init();
 	});
-};
-
-function addDepartment() {
-	inquirer
-		.prompt([{
-			name: "newDepartment",
-			type: "input",
-			message: "What department would you like to add?"
-		}, ])
-		.then(function (answers) {
-			const newDepartment = answers.newDepartment;
-			var query = "INSERT INTO departments (id, department_name) VALUES (?,?)";
-			connection.query(query, newDepartment, function (err) {
-				if (err) throw err;
-				console.log("\n ----------------------------------------\n");
-				viewDepartments();
-			});
-		});
-
-
-};
-
-function newRole() {
-	inquirer
-		.prompt([{
-				name: "newRole",
-				type: "input",
-				message: "What role would you like to add?"
-			},
-			{
-				name: "salary",
-				type: "input",
-				message: "What is the salary for that role?"
-			},
-			{
-				name: "department",
-				type: "input",
-				message: "What is the department's id for that role?"
-			},
-		])
-		.then(function (answers) {
-			let newRole = {
-				title: answers.newRole,
-				salary: answers.salary,
-				department: answers.department
-			}
-			var query = "INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)";
-			connection.query(query, [newRole.title, newRole.salary, newRole.department], function (err) {
-				if (err) throw err;
-				console.log("\n ----------------------------------------\n");
-				viewRoles();
-			});
-		});
 }
 
+function addDepartment() {
+	inquirer.prompt(questions.addDepart).then(function(answers) {
+		// const newDepartment = answers.newDepartment;
+		const query = 'INSERT INTO departments (department_name) VALUES (?)';
+		connection.query(query, [ answers.newDepartment ], function(err) {
+			if (err) throw err;
+			console.log('\n ----------------------------------------\n');
+			viewDepartments();
+			init();
+		});
+	});
+}
+
+function deleteDepartment() {
+	inquirer.prompt(questions.deleteDpar).then(function(answers) {
+		const query = 'DELETE FROM departments WHERE department_name = ?';
+		connection.query(query, [ answers.delete ], function(err) {
+			if (err) throw err;
+			console.log('\n ----------------------------------------\n');
+			viewDepartments();
+			init();
+		});
+	});
+}
+
+function newRole() {
+	inquirer.prompt(questions.addRole).then(function(answers) {
+		let newRole = {
+			title: answers.role,
+			salary: answers.salary,
+			department: answers.department
+		};
+		const query = 'INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)';
+		connection.query(query, [ newRole.title, newRole.salary, newRole.department ], function(err) {
+			if (err) throw err;
+			console.log('\n ----------------------------------------\n');
+			viewRoles();
+		});
+	});
+}
+
+function removeRole() {
+	inquirer.prompt(questions.deleteRole).then(function(answers) {
+		const query = 'DELETE FROM roles WHERE title = ?';
+		connection.query(query, [ answers.deleteR ], function(err) {
+			if (err) throw err;
+			console.log('\n ----------------------------------------\n');
+			viewRoles();
+		});
+	});
+}
 // function newEmployee() {}
 
 // function updateRole() {}

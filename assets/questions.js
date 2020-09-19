@@ -8,7 +8,9 @@ const initialQ = [
 			'View Roles',
 			'View Employees',
 			'Add Department',
+			'Delete Department',
 			'Add Role',
+			'Remove Role',
 			'Add Employee',
 			'Update Employee Role',
 			'EXIT'
@@ -18,9 +20,17 @@ const initialQ = [
 
 const addDepart = [
 	{
-		name: 'department',
+		name: 'newDepartment',
 		type: 'input',
 		message: 'What departmnet do you wish to add?'
+	}
+];
+
+const deleteDpar =[
+	{
+	name: 'delete',
+		type: 'input',
+		message: 'What departmnet would you like to delete'
 	}
 ];
 
@@ -34,13 +44,13 @@ const addRole = [
 	{
 		name: 'salary',
 		type: 'input',
-		message: 'What is teh salary of this role?'
+		message: 'What is the salary of this role?'
 	},
 
 	{
-		name: 'newDepartment',
+		name: 'department',
 		type: 'input',
-		message: ''
+		message: 'What is the departments id for that role?'
 	}
 ];
 
@@ -67,6 +77,14 @@ const addEmployee = [
 	}
 ];
 
+const deleteRole =[
+	{
+		name: "deleteR",
+        type: "input",
+        message: "What role would you like to remove?"
+	}
+]
+
 const updateRole = [
 	{
 		name: 'firstName',
@@ -88,7 +106,9 @@ const updateRole = [
 module.exports = {
 	initialQ,
 	addDepart,
+	deleteDpar,
 	addRole,
+	deleteRole,
 	addEmployee,
 	updateRole
 };
