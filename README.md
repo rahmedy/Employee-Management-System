@@ -4,6 +4,11 @@
 ![License](https://img.shields.io/badge/License-ISC-blue.svg)
 ## Description
 This Applciation allows a user to store data using a backend MySQL database to store information about departments,roles and the emplyess. It will also allow the user to create a new departmnert and add new roles
+
+## Demo
+This link shows a vidoe of the working application.   
+https://youtu.be/0qrn5fKOj_4
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
