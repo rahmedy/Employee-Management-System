@@ -12,6 +12,7 @@ const initialQ = [
 			'Add Role',
 			'Remove Role',
 			'Add Employee',
+			'Remove Employee',
 			'Update Employee Role',
 			'EXIT'
 		]
@@ -77,6 +78,19 @@ const addEmployee = [
 	}
 ];
 
+const removeEmp = [
+	{
+		name: "firstName",
+        type: "input",
+        message: "What is the employee's first name?"
+      },
+      {
+        name: "lastName",
+        type: "input",
+        message: "What is the employee's last name?"
+      },
+]
+
 const deleteRole =[
 	{
 		name: "deleteR",
@@ -110,5 +124,6 @@ module.exports = {
 	addRole,
 	deleteRole,
 	addEmployee,
+	removeEmp,
 	updateRole
 };

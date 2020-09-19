@@ -59,6 +59,10 @@ function init() {
 				newEmployee();
 				break;
 
+				case 'Remove Employee':
+				removeEmployee();
+				break;
+
 			case 'Update Employee Role':
 				updatedRole();
 				break;
@@ -170,6 +174,19 @@ function newEmployee() {
 		});
 	});
 
+}
+
+function removeEmployee() {
+	inquirer.prompt(questions.removeEmp).then(function(answers) {
+		let firstName = answers.firstName;
+		let lastName = answers.lastName;
+		const query = "DELETE FROM employee WHERE first_name = ? AND last_name = ?";
+		connection.query(query, [firstName, lastName], function (err) {
+			if (err) throw err;
+			console.log("\n ----------------------------------------\n");
+			viewemployee();	
+		});
+	});
 }
 
 // function updateRole() {}
