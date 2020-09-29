@@ -21,8 +21,6 @@ https://youtu.be/0qrn5fKOj_4
 ## Installation
 To installrun the following command:
 ``` npm i ```
-## Use
-For companies that need a database for their business 
 ## License
 This project is licensed under ISC license.
 ## Contribution 
